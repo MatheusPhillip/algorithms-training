@@ -1,0 +1,49 @@
+# Big O Cheat Sheet by Andrei Neagoie
+
+-Big Os-
+
+EXCELLENT:
+None
+
+GOOD:
+O(1) Constant - no loops
+O(log n) Logarithmic - usually searching algorithms have log n if they are sorted (Binary Search)
+
+FAIR:
+O(n) Linear - for loops, while loops through n items
+
+BAD:
+O(n log(n)) Log Linear - usually sorting operations
+
+HORRIBLE:
+O(n^2) Quadratic - every element in a collection needs to be compared to ever other element. Two nested loops
+O(2^n) Exponential - recursive algorithms that solves a problem of size N
+O(n!) Factorial - adding a loop for every element
+
+Iterating through half a collection is still O(n)
+Two separate collections: O(a + b), if they are nested than O(a * b)
+
+-What can cause time in a function?-
+
+Operations
+Comparisons
+Loopings
+Outside Function call
+
+
+-Rule Book-
+
+Rule 1: Always worst case
+Rule 2: Remove Constants
+Rule 3: Different inputs should have different variables. O(a + b).
+
++ for steps in order
+* for nested steps
+Rule 4: Drop Non-dominant terms
+
+-What causes space complexity?-
+
+Variables
+Data structures
+Function call
+Allocations
