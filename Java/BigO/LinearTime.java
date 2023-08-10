@@ -8,7 +8,7 @@ public class LinearTime{
         
         // Checking the Big O of a loop
 
-        String[] nemo = {"nemo"};
+        //String[] nemo = {"nemo"};
         String[] everyone = {"dory", "bruce", "marlin", "nemo", "gill", "bloat", "nigel", "squirt", "darla", "hank"};
 
         findNemo(everyone); // O(n) --> Linear Time
