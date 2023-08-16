@@ -3,23 +3,27 @@ package Arrays.ImplementingAnArray;
 public class Main {
     public static void main(String[] args) {
         MyArray array = new MyArray();
-        array.add(10);
+        array.addAtTheEnd(10);
         array.printArray();
 
-        array.add(20);
+        array.addAtTheEnd(20);
         array.printArray();
 
-        array.add(30);
+        array.addAtTheEnd(30);
         array.printArray();
 
-        array.add(40);
+        array.addAtTheEnd(40);
         array.printArray();
 
+        array.add(0, 22);
+        array.printArray();
+
+        /*
         array.removeFromIndex(1);
         array.printArray();
 
-        array.remove(30);
-        array.remove(40);
+        array.remove(10);
         array.printArray();
+        */
     }
 }

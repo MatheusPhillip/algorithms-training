@@ -45,7 +45,7 @@ public class MyArray {
         this.length = length;
     }
 
-    public void add(int item){
+    public void addAtTheEnd(int item){
         MyArray newArray = new MyArray();
         newArray.setArrayLength(this.getLength() + 1);
         for(int i=0; i<this.getLength(); i++){
@@ -54,6 +54,37 @@ public class MyArray {
         newArray.setDataItem(item, this.getLength());
         this.setData(newArray.getData());
         this.increaseLength();
+    }
+
+    public boolean isEmpty(){
+        if(this.getLength() == 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    private boolean validIndex(int index){
+        if(index >= 0 && index < this.getLength()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean add(int index, int item){
+        if(!this.isEmpty() && validIndex(index)){
+            System.out.println("Entrou");
+            int lastItem = this.get(this.getLength() - 1);
+            this.shiftItemsAfterAdd(index, item);
+            this.addAtTheEnd(lastItem);
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     public void removeLastItem(){
@@ -69,7 +100,8 @@ public class MyArray {
     }
 
     public void removeFromIndex(int index){
-        this.shiftItems(index);
+        this.shiftItemsAfterRemove(index);
+        this.removeLastItem();
     }
 
     public int indexOf(int value){
@@ -84,18 +116,29 @@ public class MyArray {
     public boolean remove(int value){
         int index = this.indexOf(value);
         if(index >= 0){
-            this.shiftItems(index);
+            this.shiftItemsAfterRemove(index);
+            this.removeLastItem();
             return true;
         }else{
             return false;
         }
     }
 
-    private void shiftItems(int index){
+    private void shiftItemsAfterRemove(int index){
         for(int i = index; i < this.getLength() - 1; i++){
             this.setDataItem(this.get(i + 1), i);
         }
-        this.removeLastItem();
+    }
+
+    private void shiftItemsAfterAdd(int index, int item){
+        int actualItem = this.get(index);
+        int nextItem;
+        this.setDataItem(item, index);
+        for(int i = index; i < this.getLength() - 1; i++){
+            nextItem = this.get(i + 1);
+            this.setDataItem(actualItem, i + 1);
+            actualItem = nextItem;
+        }
     }
 
     
