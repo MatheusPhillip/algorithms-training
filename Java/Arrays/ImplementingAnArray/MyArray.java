@@ -72,6 +72,25 @@ public class MyArray {
         this.shiftItems(index);
     }
 
+    public int indexOf(int value){
+        for(int i = 0; i < this.getLength(); i++){
+            if(value == this.get(i)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public boolean remove(int value){
+        int index = this.indexOf(value);
+        if(index >= 0){
+            this.shiftItems(index);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     private void shiftItems(int index){
         for(int i = index; i < this.getLength() - 1; i++){
             this.setDataItem(this.get(i + 1), i);
@@ -84,6 +103,7 @@ public class MyArray {
         for(int i=0; i< this.getLength(); i++){
             System.out.println("Index " + i + ": " + this.get(i));
         }
+        System.out.println("|-------------------------------------|");
     }
 
     public boolean contains(int value){

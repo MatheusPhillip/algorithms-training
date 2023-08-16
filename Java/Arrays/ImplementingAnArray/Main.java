@@ -17,5 +17,9 @@ public class Main {
 
         array.removeFromIndex(1);
         array.printArray();
+
+        array.remove(30);
+        array.remove(40);
+        array.printArray();
     }
 }
