@@ -45,7 +45,7 @@ public class MyArray {
         this.length = length;
     }
 
-    public void push(int item){
+    public void add(int item){
         MyArray newArray = new MyArray();
         newArray.setArrayLength(this.getLength() + 1);
         for(int i=0; i<this.getLength(); i++){
@@ -56,7 +56,7 @@ public class MyArray {
         this.increaseLength();
     }
 
-    public void pop(){
+    public void removeLastItem(){
         MyArray newArray = new MyArray();
         newArray.setArrayLength(this.getLength() - 1);
         for(int i=0; i<newArray.getLength(); i++){
@@ -68,7 +68,7 @@ public class MyArray {
         this.decreaseLength();
     }
 
-    public void delete(int index){
+    public void removeFromIndex(int index){
         this.shiftItems(index);
     }
 
@@ -76,7 +76,7 @@ public class MyArray {
         for(int i = index; i < this.getLength() - 1; i++){
             this.setDataItem(this.get(i + 1), i);
         }
-        this.pop();
+        this.removeLastItem();
     }
 
     
@@ -84,5 +84,14 @@ public class MyArray {
         for(int i=0; i< this.getLength(); i++){
             System.out.println("Index " + i + ": " + this.get(i));
         }
+    }
+
+    public boolean contains(int value){
+        for(int i = 0; i < this.getLength(); i++){
+            if(value == this.get(i)){
+                return true;
+            }
+        }
+        return false;
     }
 }
