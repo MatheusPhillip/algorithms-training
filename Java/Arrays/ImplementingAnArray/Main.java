@@ -25,5 +25,12 @@ public class Main {
         array.remove(10);
         array.printArray();
         */
+
+        array.clean();
+        array.printArray();
+        System.out.println(array.getLength());
+
+        array.addAtTheEnd(40);
+        array.printArray();
     }
 }

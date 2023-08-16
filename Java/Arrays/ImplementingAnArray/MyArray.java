@@ -157,4 +157,10 @@ public class MyArray {
         }
         return false;
     }
+
+    public void clean(){
+        int[] emptyArray = new int[0];
+        this.setData(emptyArray);
+        this.setLength(0);
+    }
 }
