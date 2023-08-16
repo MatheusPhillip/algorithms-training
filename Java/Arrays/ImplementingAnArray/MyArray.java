@@ -38,31 +38,51 @@ public class MyArray {
 
     private void setDataLength(int length){
         this.data = new int[length];
+        this.setLength(length);
+    }
+
+    private void setLength(int length){
+        this.length = length;
     }
 
     public void push(int item){
         MyArray newArray = new MyArray();
         newArray.setDataLength(this.getLength() + 1);
-        //newArray.data = new int[this.getLength() + 1];
         for(int i=0; i<this.getLength(); i++){
             newArray.setDataItem(this.get(i), i);
         }
         newArray.setDataItem(item, this.getLength());
         this.setData(newArray.getData());
-        //this.data = newArray.getData();
         this.increaseLength();
     }
 
     public void pop(){
         MyArray newArray = new MyArray();
         newArray.setDataLength(this.getLength() - 1);
-        //int[] newArray = new int[this.getLength() - 1];
         for(int i=0; i<newArray.getLength(); i++){
-            //newArray[i] = this.data[i];
             newArray.setDataItem(this.get(i), i);
         }
-        //this.data = newArray;
+        
+        
         this.setData(newArray.getData());
         this.decreaseLength();
+    }
+
+    public void delete(int index){
+        this.shiftItems(index);
+    }
+
+    private void shiftItems(int index){
+        for(int i = index; i < this.getLength() - 1; i++){
+            this.setDataItem(this.get(i + 1), i);
+        }
+        this.pop();
+    }
+
+    
+    public void printArray(){
+        for(int i=0; i< this.getLength(); i++){
+            System.out.println("Index " + i + ": " + this.get(i));
+        }
     }
 }
