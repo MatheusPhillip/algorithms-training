@@ -36,7 +36,7 @@ public class MyArray {
         this.data = data;
     }
 
-    private void setDataLength(int length){
+    private void setArrayLength(int length){
         this.data = new int[length];
         this.setLength(length);
     }
@@ -47,7 +47,7 @@ public class MyArray {
 
     public void push(int item){
         MyArray newArray = new MyArray();
-        newArray.setDataLength(this.getLength() + 1);
+        newArray.setArrayLength(this.getLength() + 1);
         for(int i=0; i<this.getLength(); i++){
             newArray.setDataItem(this.get(i), i);
         }
@@ -58,7 +58,7 @@ public class MyArray {
 
     public void pop(){
         MyArray newArray = new MyArray();
-        newArray.setDataLength(this.getLength() - 1);
+        newArray.setArrayLength(this.getLength() - 1);
         for(int i=0; i<newArray.getLength(); i++){
             newArray.setDataItem(this.get(i), i);
         }
