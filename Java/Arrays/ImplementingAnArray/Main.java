@@ -15,22 +15,33 @@ public class Main {
         array.addAtTheEnd(40);
         array.printArray();
 
-        array.add(0, 22);
+        array.addAtTheEnd(10);
         array.printArray();
 
-        /*
-        array.removeFromIndex(1);
+        array.addAtTheEnd(20);
         array.printArray();
 
-        array.remove(10);
+        array.addAtTheEnd(30);
         array.printArray();
-        */
-
-        array.clean();
-        array.printArray();
-        System.out.println(array.getLength());
 
         array.addAtTheEnd(40);
         array.printArray();
+
+        array.addAtTheEnd(10);
+        array.printArray();
+
+        array.addAtTheEnd(20);
+        array.printArray();
+
+        array.addAtTheEnd(30);
+        array.printArray();
+
+        array.addAtTheEnd(40);
+        array.printArray();
+
+        array.add(10, 1000);
+        array.printArray();
+
+        System.out.println(array.getLength());
     }
 }

@@ -2,10 +2,12 @@ package Arrays.ImplementingAnArray;
 
 public class MyArray {
     private int length;
+    private int numberOfItems;
     private int[] data;
 
     public MyArray() {
-        this.length = 0;
+        this.length = 10;
+        this.numberOfItems = 0;
     }
 
     public int get(int index){
@@ -16,8 +18,12 @@ public class MyArray {
         return this.length;
     }
 
-    private void increaseLength(){
-        this.length++;
+    public int getNumberOfItems(){
+        return this.numberOfItems;
+    }
+
+    public void setNumberOfItems(int numberOfItems){
+        this.numberOfItems = numberOfItems;
     }
 
     private void decreaseLength(){
@@ -46,18 +52,46 @@ public class MyArray {
     }
 
     public void addAtTheEnd(int item){
-        MyArray newArray = new MyArray();
-        newArray.setArrayLength(this.getLength() + 1);
-        for(int i=0; i<this.getLength(); i++){
+        MyArray newArray = this.createNewArray();
+        for(int i=0; i<this.getNumberOfItems(); i++){
             newArray.setDataItem(this.get(i), i);
         }
-        newArray.setDataItem(item, this.getLength());
+        newArray.setDataItem(item, this.getNumberOfItems());
         this.setData(newArray.getData());
-        this.increaseLength();
+        this.increaseNumberOfItems();
+    }
+
+    private void increaseLengthForNewArray(){
+        this.length = this.getLength() + 10;
+    }
+
+    private void increaseNumberOfItems(){
+        this.numberOfItems++;
+    }
+
+    private MyArray createNewArray(){
+        MyArray newArray = new MyArray();
+        if(this.arrayHasSpace()){
+            newArray.setArrayLength(this.getLength() + 1);
+        }else{
+            newArray.setArrayLength(this.getLength() + 10);
+            this.increaseLengthForNewArray();
+        }
+        newArray.setNumberOfItems(this.getNumberOfItems() + 1);
+        return newArray;
+    }
+
+    private boolean arrayHasSpace(){
+        if(this.getNumberOfItems() >= this.getLength()){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
     public boolean isEmpty(){
-        if(this.getLength() == 0){
+        if(this.getNumberOfItems() == 0){
             return true;
         }
         else{
@@ -66,7 +100,7 @@ public class MyArray {
     }
 
     private boolean validIndex(int index){
-        if(index >= 0 && index < this.getLength()){
+        if(index >= 0 && index < this.getNumberOfItems()){
             return true;
         }
         else{
@@ -76,8 +110,7 @@ public class MyArray {
 
     public boolean add(int index, int item){
         if(!this.isEmpty() && validIndex(index)){
-            System.out.println("Entrou");
-            int lastItem = this.get(this.getLength() - 1);
+            int lastItem = this.get(this.getNumberOfItems() - 1);
             this.shiftItemsAfterAdd(index, item);
             this.addAtTheEnd(lastItem);
             return true;
@@ -89,8 +122,8 @@ public class MyArray {
 
     public void removeLastItem(){
         MyArray newArray = new MyArray();
-        newArray.setArrayLength(this.getLength() - 1);
-        for(int i=0; i<newArray.getLength(); i++){
+        newArray.setArrayLength(this.getNumberOfItems() - 1);
+        for(int i=0; i<newArray.getNumberOfItems(); i++){
             newArray.setDataItem(this.get(i), i);
         }
         
@@ -105,7 +138,7 @@ public class MyArray {
     }
 
     public int indexOf(int value){
-        for(int i = 0; i < this.getLength(); i++){
+        for(int i = 0; i < this.getNumberOfItems(); i++){
             if(value == this.get(i)){
                 return i;
             }
@@ -125,7 +158,7 @@ public class MyArray {
     }
 
     private void shiftItemsAfterRemove(int index){
-        for(int i = index; i < this.getLength() - 1; i++){
+        for(int i = index; i < this.getNumberOfItems() - 1; i++){
             this.setDataItem(this.get(i + 1), i);
         }
     }
@@ -134,7 +167,7 @@ public class MyArray {
         int actualItem = this.get(index);
         int nextItem;
         this.setDataItem(item, index);
-        for(int i = index; i < this.getLength() - 1; i++){
+        for(int i = index; i < this.getNumberOfItems() - 1; i++){
             nextItem = this.get(i + 1);
             this.setDataItem(actualItem, i + 1);
             actualItem = nextItem;
@@ -143,14 +176,14 @@ public class MyArray {
 
     
     public void printArray(){
-        for(int i=0; i< this.getLength(); i++){
+        for(int i=0; i< this.getNumberOfItems(); i++){
             System.out.println("Index " + i + ": " + this.get(i));
         }
         System.out.println("|-------------------------------------|");
     }
 
     public boolean contains(int value){
-        for(int i = 0; i < this.getLength(); i++){
+        for(int i = 0; i < this.getNumberOfItems(); i++){
             if(value == this.get(i)){
                 return true;
             }
@@ -161,6 +194,6 @@ public class MyArray {
     public void clean(){
         int[] emptyArray = new int[0];
         this.setData(emptyArray);
-        this.setLength(0);
+        this.setLength(10);
     }
 }
