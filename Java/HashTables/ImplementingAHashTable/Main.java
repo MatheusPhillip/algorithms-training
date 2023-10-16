@@ -12,5 +12,7 @@ public class Main {
         System.out.println(ht.get("star"));
         System.out.println(ht.get("appless"));
 
+        System.out.println(ht.getKeys());
+
     }
 }

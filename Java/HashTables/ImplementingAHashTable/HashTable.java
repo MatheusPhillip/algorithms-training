@@ -58,6 +58,25 @@ public class HashTable {
         return null;
     }
 
+    public ArrayList<String> getKeys(){
+        ArrayList<String> keysArray = new ArrayList<>();
+
+        for(int index = 0; index < this.getSize(); index++){
+            if(this.getData().get(index) != null){
+                ArrayList<Map<String, Integer>> currentBucket = this.getData().get(index);
+                for(int currentBucketIndex = 0; currentBucketIndex < currentBucket.size(); currentBucketIndex++){
+                    //keysArray.add(currentBucket.get(currentBucketIndex).keySet().toString());
+                    Map<String, Integer> map = currentBucket.get(currentBucketIndex);
+                    map.forEach((key, value) -> {
+                        keysArray.add(key);
+                    });
+                }
+                
+            }
+        }
+        return keysArray;
+    }
+
     private boolean addressHasData(int address){
         if(this.data.get(address) == null){
             System.out.println("entrou");
