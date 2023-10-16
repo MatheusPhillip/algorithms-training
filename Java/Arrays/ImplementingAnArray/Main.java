@@ -36,10 +36,29 @@ public class Main {
         array.addAtTheEnd(30);
         array.printArray();
 
-        array.addAtTheEnd(40);
+        array.addAtTheEnd(70);
         array.printArray();
 
-        array.add(10, 1000);
+        array.addAtTheEnd(1000);
+        array.printArray();
+
+        array.remove(70);
+        array.printArray();
+
+        System.out.println(array.getLength());
+
+        array.clean();
+
+        array.addAtTheEnd(30);
+        array.printArray();
+
+        array.addAtTheEnd(70);
+        array.printArray();
+
+        array.addAtTheEnd(1000);
+        array.printArray();
+
+        array.remove(70);
         array.printArray();
 
         System.out.println(array.getLength());

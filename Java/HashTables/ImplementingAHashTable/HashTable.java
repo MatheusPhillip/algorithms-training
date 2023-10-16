@@ -45,6 +45,19 @@ public class HashTable {
         }
     }
 
+    public Integer get(String key){
+        int address = this.hash(key);
+        ArrayList<Map<String, Integer>> currentBucket = this.getData().get(address);
+        if(currentBucket != null){
+            for(int index = 0; index < currentBucket.size(); index++){
+                if(currentBucket.get(index).containsKey(key)){
+                    return currentBucket.get(index).get(key);
+                }
+            }
+        }
+        return null;
+    }
+
     private boolean addressHasData(int address){
         if(this.data.get(address) == null){
             System.out.println("entrou");

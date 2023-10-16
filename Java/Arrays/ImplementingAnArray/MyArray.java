@@ -69,6 +69,10 @@ public class MyArray {
         this.numberOfItems++;
     }
 
+    private void decreaseNumberOfItems(){
+        this.numberOfItems--;
+    }
+
     private MyArray createNewArray(){
         MyArray newArray = new MyArray();
         if(this.arrayHasSpace()){
@@ -82,21 +86,11 @@ public class MyArray {
     }
 
     private boolean arrayHasSpace(){
-        if(this.getNumberOfItems() >= this.getLength()){
-            return false;
-        }
-        else{
-            return true;
-        }
+        return !(this.getNumberOfItems() >= this.getLength());
     }
 
     public boolean isEmpty(){
-        if(this.getNumberOfItems() == 0){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return this.getNumberOfItems() == 0;
     }
 
     private boolean validIndex(int index){
@@ -122,14 +116,13 @@ public class MyArray {
 
     public void removeLastItem(){
         MyArray newArray = new MyArray();
-        newArray.setArrayLength(this.getNumberOfItems() - 1);
+        newArray.setArrayLength(this.getLength());
+        newArray.setNumberOfItems(this.getNumberOfItems());
         for(int i=0; i<newArray.getNumberOfItems(); i++){
             newArray.setDataItem(this.get(i), i);
         }
-        
-        
         this.setData(newArray.getData());
-        this.decreaseLength();
+        this.decreaseNumberOfItems();
     }
 
     public void removeFromIndex(int index){
@@ -192,8 +185,13 @@ public class MyArray {
     }
 
     public void clean(){
-        int[] emptyArray = new int[0];
+        this.setDefaultArrayLength();
+    }
+
+    private void setDefaultArrayLength(){
+        int[] emptyArray = new int[10];
         this.setData(emptyArray);
         this.setLength(10);
+        this.setNumberOfItems(0);
     }
 }
