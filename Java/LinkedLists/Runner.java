@@ -24,6 +24,9 @@ public class Runner {
         list.deleteByValue(7);
         
         list.printList();
+
+        list.findNumber(7);
+        list.findNumber(9);
     }
     
 }

@@ -52,4 +52,20 @@ public class LinkedList {
         System.out.print(currentNode.getData());
         System.out.println();
     }
+
+    public void findNumber(int number){
+        if(head == null){
+            System.out.println("The list is empty");
+            return;
+        }
+        Node currentNode = head;
+        while(currentNode!= null){
+            if(currentNode.getData() == number){
+                System.out.println("The number " + number + " is presented in the list");
+                return;
+            }
+            currentNode = currentNode.getNext();
+        }
+        System.out.println("The number " + number + " is not presented in the list");
+    }
 }
