@@ -3,7 +3,7 @@ package LinkedLists.Model;
 public class LinkedList {
     Node head;
 
-    public void append(int data){
+    public void insertAtTheEnd(int data){
         if(head == null){
             head = new Node(data);
             return;
@@ -15,7 +15,7 @@ public class LinkedList {
         current.setNext(new Node(data));
     }
 
-    public void prepend(int data){
+    public void insertAtTheBeginning(int data){
         Node newHead = new Node(data);
         newHead.setNext(head);
         head = newHead;
@@ -38,7 +38,7 @@ public class LinkedList {
         }
     }
 
-    public void printListData(){
+    public void printList(){
         if(head == null){
             System.out.println("The list is empty");
             return;
