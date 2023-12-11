@@ -53,7 +53,7 @@ public class LinkedList {
         System.out.println();
     }
 
-    public void findNumber(int number){
+    public void hasNumber(int number){
         if(head == null){
             System.out.println("The list is empty");
             return;

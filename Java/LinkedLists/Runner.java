@@ -25,8 +25,8 @@ public class Runner {
         
         list.printList();
 
-        list.findNumber(7);
-        list.findNumber(9);
+        list.hasNumber(7);
+        list.hasNumber(9);
     }
     
 }
