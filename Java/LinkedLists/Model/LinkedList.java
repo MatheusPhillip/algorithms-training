@@ -21,7 +21,7 @@ public class LinkedList {
         head = newHead;
     }
 
-    public void deleteWithValue(int data){
+    public void deleteByValue(int data){
         if(head == null) return;
         if(head.getData() == data){
             head = head.getNext();
@@ -43,12 +43,13 @@ public class LinkedList {
             System.out.println("The list is empty");
             return;
         }
-        Node current = head;
-        while(current.getNext() != null){
-            System.out.print(current.getData());
-            current = current.getNext();
+        Node currentNode = head;
+        while(currentNode.getNext() != null){
+            System.out.print(currentNode.getData());
+            currentNode = currentNode.getNext();
+            System.out.print(" - ");
         }
-        System.out.print(current.getData());
+        System.out.print(currentNode.getData());
         System.out.println();
     }
 }

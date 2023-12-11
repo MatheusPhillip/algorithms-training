@@ -18,7 +18,7 @@ public class Runner {
 
         list.printListData();
 
-        list.deleteWithValue(7);
+        list.deleteByValue(7);
         
         list.printListData();
     }
