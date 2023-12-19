@@ -10,7 +10,3 @@ myLinkedList.addAtTheBeginning(0);
 
 
 myLinkedList.printList();
-
-console.log(myLinkedList.getHead().getNumber());
-console.log(myLinkedList.getTail().getNumber());
-console.log(myLinkedList.getLength());
