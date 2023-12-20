@@ -77,4 +77,34 @@ export class LinkedList{
         }
         this.increaseLength();
     }
+
+    insertByIndex(index, number){
+        if(this.#indexIsValid()){
+            if(index == 0){
+                this.addAtTheBeginning(number);
+            }
+            else if(index == this.getLength()){
+                this.addAtTheEnd(number);
+            }
+            else{
+                let actualNode = this.getHead();
+                let actualIndex = 0;
+                let newNode = new Node(number);
+                while(actualIndex < index - 1){
+                    actualIndex++;
+                    actualNode = actualNode.getNextNode();
+                }
+                newNode.setNextNode(actualNode.getNextNode());
+                actualNode.setNextNode(newNode);
+                this.increaseLength();
+            }
+        }
+        else{
+            console.log("Invalid index given the actual list length");
+        }
+    }
+
+    #indexIsValid(index){
+        return index >= 0 && index <= this.getLength();
+    }
 }
