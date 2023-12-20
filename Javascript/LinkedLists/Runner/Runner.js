@@ -11,7 +11,3 @@ myLinkedList.addAtTheBeginning(30);
 myLinkedList.insertByIndex(10, 20);
 
 myLinkedList.printList();
-
-console.log(myLinkedList.getHead().getNumber());
-console.log(myLinkedList.getTail().getNumber());
-console.log(myLinkedList.getLength());

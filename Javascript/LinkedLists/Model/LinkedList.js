@@ -50,6 +50,9 @@ export class LinkedList{
             actualNode = actualNode.getNextNode();
         }
         console.log("");
+        console.log("First number of the list: " + this.getHead().getNumber());
+        console.log("Last number of the list: " + this.getTail().getNumber());
+        console.log("List length: " + this.getLength());
     }
 
     addAtTheEnd(number){
