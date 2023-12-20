@@ -82,7 +82,7 @@ export class LinkedList{
     }
 
     insertByIndex(index, number){
-        if(this.#indexIsValid()){
+        if(this.#indexIsValid(index)){
             if(index == 0){
                 this.addAtTheBeginning(number);
             }
@@ -108,6 +108,6 @@ export class LinkedList{
     }
 
     #indexIsValid(index){
-        return index >= 0 && index <= this.getLength();
+       return (index >= 0 && index <= this.getLength()) ? true : false;
     }
 }
