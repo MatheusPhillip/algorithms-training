@@ -45,6 +45,10 @@ export class LinkedList{
 
     printList(){
         let actualNode = this.#head;
+        if(this.getLength() == 0 ){
+            console.log("List is empty.")
+            return;
+        }
         while(actualNode != null){
             process.stdout.write(actualNode.getNumber() + " ");
             actualNode = actualNode.getNextNode();
@@ -104,6 +108,24 @@ export class LinkedList{
         }
         else{
             console.log("Invalid index given the actual list length");
+        }
+    }
+
+    removeAtTheBeginning(){
+        if(this.getLength() == 0){
+            console.log("Empty list, nothing to remove.");
+            return;
+        }
+        else if(this.getLength() == 1){
+            this.#head = null;
+            this.#tail = null;
+            this.decreaseLength();
+            console.log("List is now empty.");
+        }
+        else{
+            this.setHead(this.getHead().getNextNode());
+            this.decreaseLength();
+            console.log("First index was deleted");
         }
     }
 
