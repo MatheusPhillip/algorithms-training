@@ -9,13 +9,14 @@ myLinkedList.addAtTheBeginning(40);
 myLinkedList.addAtTheBeginning(30);
 
 myLinkedList.insertByIndex(1, 20);
-myLinkedList.removeAtTheBeginning();
-myLinkedList.removeAtTheBeginning();
-myLinkedList.removeAtTheBeginning();
-myLinkedList.removeAtTheBeginning();
-myLinkedList.removeAtTheBeginning();
-myLinkedList.removeAtTheBeginning();
-myLinkedList.removeAtTheBeginning();
+myLinkedList.removeAtTheEnd();
+myLinkedList.removeAtTheEnd();
+myLinkedList.removeAtTheEnd();
+myLinkedList.removeAtTheEnd();
+myLinkedList.removeAtTheEnd();
+myLinkedList.removeAtTheEnd();
+myLinkedList.removeAtTheEnd();
+myLinkedList.removeAtTheEnd();
 
 
 myLinkedList.printList();

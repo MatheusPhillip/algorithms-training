@@ -129,6 +129,31 @@ export class LinkedList{
         }
     }
 
+    removeAtTheEnd(){
+        if(this.getLength() == 0){
+            console.log("Empty list, nothing to remove.");
+            return;
+        }
+        else if(this.getLength() == 1){
+            this.#head = null;
+            this.#tail = null;
+            this.decreaseLength();
+            console.log("List is now empty.");
+        }
+        else{
+            let actualNode = this.getHead();
+            let actualIndex = 0;
+            while(actualIndex < this.getLength() - 1){
+                actualIndex++;
+                actualNode = actualNode.getNextNode();
+            }
+            actualNode.setNextNode(null);
+            this.setTail(actualNode);
+            this.decreaseLength();
+            console.log("Last index was deleted");
+        }
+    }
+
     #indexIsValid(index){
        return (index >= 0 && index <= this.getLength()) ? true : false;
     }
