@@ -143,7 +143,7 @@ export class LinkedList{
         else{
             let actualNode = this.getHead();
             let actualIndex = 0;
-            while(actualIndex < this.getLength() - 1){
+            while(actualIndex < this.getLength() - 2){
                 actualIndex++;
                 actualNode = actualNode.getNextNode();
             }
@@ -151,6 +151,32 @@ export class LinkedList{
             this.setTail(actualNode);
             this.decreaseLength();
             console.log("Last index was deleted");
+        }
+    }
+
+    removeByIndex(index){
+        if(!this.#indexIsValid(index)){
+            console.log("Invalid index.")
+            return;
+        }
+
+        if(index == 0){
+            this.removeAtTheBeginning();
+        }
+        else if(index == (this.getLength() - 1)){
+            this.removeAtTheEnd()
+        }
+        else{
+            let actualNode = this.getHead();
+            let actualIndex = 0;
+            while(actualIndex < index - 1){
+                actualIndex++;
+                actualNode = actualNode.getNextNode();
+            }
+            let nextNode = actualNode.getNextNode();
+            actualNode.setNextNode(nextNode.getNextNode());
+            this.decreaseLength();
+            console.log("Element at index " + index + " deleted.");
         }
     }
 
