@@ -180,6 +180,31 @@ export class LinkedList{
         }
     }
 
+    reverse(){
+        if(this.getLength() == 0){
+            console.log("List is empty.");
+            return;
+        }
+        if(this.getLength() == 1){
+            return this.getHead();
+        }
+
+        let first = this.getHead();
+        this.setTail(this.getHead());
+        let second = first.getNextNode();
+
+        while(second){
+            const temp = second.getNextNode();
+            second.setNextNode(first);
+            first = second;
+            second = temp;
+        }
+
+        this.getHead().setNextNode(null);
+        this.setHead(first);
+        return this;
+    }
+
     #indexIsValid(index){
        return (index >= 0 && index <= this.getLength()) ? true : false;
     }

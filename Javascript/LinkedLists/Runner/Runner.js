@@ -14,5 +14,6 @@ myLinkedList.printList();
 
 myLinkedList.removeByIndex(3);
 
+myLinkedList = myLinkedList.reverse();
 
 myLinkedList.printList();
