@@ -43,6 +43,10 @@ export class DoublyLinkedList{
         }
     }
 
+    #indexIsValid(index){
+        return (index >= 0 && index <= this.getLength()) ? true : false;
+     }
+
     printList(){
         let actualNode = this.#head;
         if(this.getLength() == 0 ){
@@ -85,5 +89,34 @@ export class DoublyLinkedList{
             this.setHead(newNode);
         }
         this.increaseLength();
+    }
+
+    insertByIndex(index, number){
+        if(this.#indexIsValid(index)){
+            if(index == 0){
+                this.addAtTheBeginning(number);
+            }
+            else if(index == this.getLength()){
+                this.addAtTheEnd(number);
+            }
+            else{
+                let actualNode = this.getHead();
+                let actualIndex = 0;
+                let newNode = new Node(number);
+                while(actualIndex < index - 1){
+                    actualIndex++;
+                    actualNode = actualNode.getNextNode();
+                }
+                newNode.setNextNode(actualNode.getNextNode());
+                newNode.setPreviousNode(actualNode);
+                let nextNode = newNode.getNextNode();
+                nextNode.setPreviousNode(newNode);
+                actualNode.setNextNode(newNode);
+                this.increaseLength();
+            }
+        }
+        else{
+            console.log("Invalid index given the actual list length");
+        }
     }
 }
