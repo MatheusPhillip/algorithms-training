@@ -72,4 +72,18 @@ export class DoublyLinkedList{
         }
         this.increaseLength();
     }
+
+    addAtTheBeginning(number){
+        let newNode = new Node(number);
+        if(this.getLength() == 0){
+            this.setHead(newNode);
+            this.setTail(newNode);
+        }
+        else{
+            this.getHead().setPreviousNode(newNode);
+            newNode.setNextNode(this.getHead());
+            this.setHead(newNode);
+        }
+        this.increaseLength();
+    }
 }
