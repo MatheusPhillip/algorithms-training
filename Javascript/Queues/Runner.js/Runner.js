@@ -8,5 +8,9 @@ myQueue.queue(30);
 console.log(myQueue.peek().getNumber());
 
 myQueue.deQueue();
+myQueue.deQueue();
+myQueue.deQueue();
+myQueue.deQueue();
 
-console.log(myQueue.peek().getNumber());
+
+console.log(myQueue.peek());

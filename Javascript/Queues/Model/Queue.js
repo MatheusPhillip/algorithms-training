@@ -74,6 +74,13 @@ export class Queue{
             console.log("Queue is empty.");
             return this;
         }
+
+        if(this.#getLength() == 1){
+            this.#setFirst(null);
+            this.#setLast(null);
+            this.decreaseLength();
+            return this;
+        }
         
         const first = this.#getFirst();
         const second = first.getNextNode();
@@ -82,7 +89,7 @@ export class Queue{
         
         this.decreaseLength();
 
-        return first;
+        return first.getNumber();
     }
     
 }
