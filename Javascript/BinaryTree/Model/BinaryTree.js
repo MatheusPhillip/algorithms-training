@@ -15,7 +15,7 @@ export class BinaryTree{
         this.#root = binaryTreeNode;
     }
 
-    insertRecursive(currentNode, number){
+    #insertRecursive(currentNode, number){
         if(currentNode == null){
             const newBinaryTreeNode = new BinaryTreeNode(number);
             return newBinaryTreeNode;
@@ -27,16 +27,16 @@ export class BinaryTree{
         }
 
         if(number < currentNode.getValue()){
-            currentNode.setLeft(this.insertRecursive(currentNode.getLeft(), number));
+            currentNode.setLeft(this.#insertRecursive(currentNode.getLeft(), number));
         }
         else if(number > currentNode.getValue()){
-            currentNode.setRight(this.insertRecursive(currentNode.getRight(), number));
+            currentNode.setRight(this.#insertRecursive(currentNode.getRight(), number));
         }
         return currentNode;
     }
 
     insert(number){
-        this.#root = this.insertRecursive(this.getRoot(), number);
+        this.#root = this.#insertRecursive(this.getRoot(), number);
     }
 
     print(){
@@ -52,6 +52,33 @@ export class BinaryTree{
 
         if(currentNode.getRight() != null){
             this.#printInOrder(currentNode.getRight());
+        }
+    }
+
+    contains(number){
+        return this.#containsUsingRecursion(this.getRoot(), number);
+    }
+
+    #containsUsingRecursion(currentNode, number){
+        if(currentNode.getValue() == number){
+            return true;
+        }
+
+        if(number < currentNode.getValue()){
+            if(currentNode.getLeft() == null){
+                return false;
+            }
+            else{
+                return this.#containsUsingRecursion(currentNode.getLeft(), number);
+            }
+        }
+        else{
+            if(currentNode.getRight() == null){
+                return false;
+            }
+            else{
+                return this.#containsUsingRecursion(currentNode.getRight(), number);
+            }
         }
     }
 }

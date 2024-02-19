@@ -11,3 +11,6 @@ myBinaryTree.insert(3);
 
 
 myBinaryTree.print();
+
+console.log(myBinaryTree.contains(1));
+console.log(myBinaryTree.contains(22));
